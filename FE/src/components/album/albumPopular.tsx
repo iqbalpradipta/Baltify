@@ -51,7 +51,7 @@ function AlbumPopular() {
       </Box>
       <Divider orientation="horizontal" color="gray" flexItem sx={{ mt: -3 }} />
       <Box padding="10px" color="white" fontWeight="bold">
-        Your Favorite Album's
+        Albums you might like
       </Box>
     </>
   );
