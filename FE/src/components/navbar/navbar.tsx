@@ -2,6 +2,7 @@ import { Container, Box, Grid, Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import SearchBar from '../Search/Search';
 import HomeIcon from '@mui/icons-material/Home';
+import Drawer from '../drawer/drawer';
 
 function Navbar() {
   return (
@@ -28,9 +29,7 @@ function Navbar() {
           </Link>
         </Grid>
         <Grid item xs={2}>
-          <Link component={RouterLink} to="/register" underline="none" sx={{ position: 'relative', right: '-80px', color: 'white', top: '25px' }}>
-            Register
-          </Link>
+          <Drawer />
         </Grid>
       </Grid>
     </>
