@@ -21,11 +21,11 @@ model User {
 }
 
 model Song {
-  id       String @id @default(auto()) @map("_id") @db.ObjectId
-  tittle   String
-  Artist   String
-  Album    Album   @relation(fields: [AlbumId], references: [id])
-  AlbumId String @db.ObjectId
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  tittle    String
+  Artist    String
+  Album     Album   @relation(fields: [AlbumId], references: [id])
+  AlbumId   String @db.ObjectId
 }
 
 model Album {

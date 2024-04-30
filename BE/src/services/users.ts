@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client"
+import { Prisma, PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
@@ -15,22 +15,24 @@ export const getUsersServices = async() => {
     }
 }
 
-export const getUsersById = () => {
-
-}
-
-export const insertUsers = async(data: any) => {
+export const getUsersByIdServices = async (email: string) => {
     try {
-        const usersData = await prisma.user.create({data})
+        const data = await prisma.user.findUnique({
+            where: {
+                email: email
+            }
+        })
 
         return {
             data,
-            messages: 'Suckeess create users'
+            messages: 'success get data by id'
         }
     } catch (error) {
+        console.log(error)
         throw error
     }
 }
+
 
 export const updateUsers = () => {
 
