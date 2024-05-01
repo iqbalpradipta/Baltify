@@ -1,33 +1,62 @@
 import { Request, Response } from "express";
-import { getUsersByIdServices, getUsersServices } from "../services/users";
+import UserService from "../services/users";
+import bcrypt from "bcrypt";
 
-export const getUsers = async (req: Request, res: Response) => {
+export default new (class UserController {
+  getUsers = async (req: Request, res: Response) => {
     try {
-        const response = await getUsersServices()
-        res.status(200).json(response)
+      const response = await UserService.getUsersServices();
+      res.status(200).json(response);
     } catch (error) {
-        res.status(500).json(error)
+      res.status(500).json(error);
     }
-}
+  };
 
-export const getUsersById = async (req: Request, res: Response) => {
+  getUsersById = async (req: Request, res: Response) => {
     try {
-        const email = req.params.email
+      const username = req.params.username;
 
-        const response = await getUsersByIdServices(email)
+      const response = await UserService.getUsersByIdServices(username);
 
-
-        res.status(200).json(response)
+      res.status(200).json(response);
     } catch (error) {
-        console.log(error)
-        res.status(500).json(error)
+      console.log(error);
+      res.status(500).json(error);
     }
-}
+  };
 
-export const updateUsers = async (req: Request, res: Response) => {
+  updateUsers = async (req: Request, res: Response) => {
+    try {
+      const username = req.params.username;
 
-}
+      const data = {
+        email: req.body.email,
+        username: req.body.username,
+        name: req.body.name,
+        password: req.body.password,
+      };
 
-export const deleteUsers = async (req: Request, res: Response) => {
+      const hashPassword = bcrypt.hashSync(data.password, 10);
 
-}
+      data.password = hashPassword;
+
+      const response = await UserService.updateUser(data, username);
+
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  };
+
+  deleteUsers = async (req: Request, res: Response) => {
+    try {
+      const username = req.params.username;
+
+      const response = await UserService.DeleteUser(username);
+
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  };
+})();
