@@ -24,6 +24,7 @@ router.post('/album', AlbumController.InsertAlbum)
 // Song
 router.get('/song', SongController.GetSong)
 router.post('/song', uploadFiles.Upload('Song'), SongController.InsertSong)
+router.patch('/song/:id', uploadFiles.Upload('Song'), SongController.UpdateSong)
 
 // Auth
 router.post('/register', AuthController.RegisterUsers)

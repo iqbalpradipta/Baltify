@@ -26,4 +26,20 @@ export default new (class SongController {
       res.status(500).json(error);
     }
   };
+
+  async UpdateSong(req: Request, res: Response) {
+    try {
+      const id = parseInt(req.params.id)
+      const data = req.body
+      data.AlbumId = parseInt(req.body.AlbumId)
+
+      const response = await SongService.updateSong(id, data)
+
+      res.status(200).json(response)
+    } catch (error) {
+      console.log(error)
+      res.status(500).json(error)
+    }
+  }
+
 })();
