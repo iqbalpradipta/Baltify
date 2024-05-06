@@ -1,22 +1,20 @@
-import { Box } from '@mui/material';
-import Navbar from '../components/navbar/navbar';
+import { Box, Grid } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import AudioPlay from '../components/play/audioPlay';
+import Sidebar from '../components/sidebar';
 
 function Layout() {
   return (
     <>
-      <Box>
-        <Navbar />
-      </Box>
+    <Grid spacing={2}>
+      <Grid item xs={6}>
+        <Sidebar />
+      </Grid>
 
-      <Box sx={{position: 'relative', top: '50px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <Grid item xs={6}>
         <Outlet />
-      </Box>
+      </Grid>
+    </Grid>
 
-      {/* <Box sx={{position: 'fixed', display: 'flex', color: 'white', top: '365px', left: '350px'}}>
-        <AudioPlay />
-      </Box> */}
     </>
   );
 }

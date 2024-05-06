@@ -5,6 +5,7 @@ export default new (class SongController {
   InsertSong = async (req: Request, res: Response) => {
     try {
       const data = req.body;
+      data.Song = req.file?.filename
 
       const response = await SongService.insertSong(data);
 

@@ -4,6 +4,7 @@ import AuthController from '../controllers/auth'
 import UserController from '../controllers/users'
 import AlbumController from '../controllers/album'
 import SongController from '../controllers/song'
+import uploadFiles from '../middleware/uploadFiles'
 
 const router = express.Router()
 
@@ -22,7 +23,7 @@ router.post('/album', AlbumController.InsertAlbum)
 
 // Song
 router.get('/song', SongController.GetSong)
-router.post('/song', SongController.InsertSong)
+router.post('/song', uploadFiles.Upload('Song'), SongController.InsertSong)
 
 // Auth
 router.post('/register', AuthController.RegisterUsers)

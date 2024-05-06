@@ -1,12 +1,11 @@
-import { Box, Divider } from '@mui/material';
+import { Box } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination } from 'swiper/modules';
-import ImagePopuler from '../../mocks/imagePopuler.json'
+import ListAlbums from '../mocks/ListAlbums.json'
 
-function AlbumPopular() {
+function ListAlbum() {
 
   return (
     <>
@@ -17,10 +16,9 @@ function AlbumPopular() {
           pagination={{
             clickable: true,
           }}
-          modules={[Pagination]}
           className="mySwiper"
         >
-          {ImagePopuler.map((data) => (
+          {ListAlbums.map((data) => (
             <SwiperSlide style={{ width: '200px', margin: 'auto', display: 'flex', justifyContent: 'center'}}>
               <Box
                 sx={{
@@ -42,19 +40,15 @@ function AlbumPopular() {
                   alt={data.alt}
                   src={data.src}
                 />
-                <Box sx={{ color: 'gray', display: 'flex', justifyContent: 'center' }}>{data.alt}</Box>
-                <Box sx={{ color: 'white', display: 'flex', justifyContent: 'center', mb: 4 }}>{data.tittle}</Box>
+                <Box sx={{ color: 'black', fontWeight: 'bold' ,display: 'flex', justifyContent: 'center', mt: '10px'}}>{data.alt}</Box>
+                <Box sx={{ color: 'gray', display: 'flex', justifyContent: 'center', mb: 4 }}>{data.tittle}</Box>
               </Box>
             </SwiperSlide>
           ))}
         </Swiper>
       </Box>
-      <Divider orientation="horizontal" color="gray" flexItem sx={{ mt: -3 }} />
-      <Box padding="10px" color="white" fontWeight="bold">
-        Albums you might like
-      </Box>
     </>
   );
 }
 
-export default AlbumPopular;
+export default ListAlbum;

@@ -30,7 +30,7 @@ model Song {
   Artist    String
   Song      String
   Album     Album?   @relation(fields: [AlbumId], references: [id])
-  AlbumId   Int
+  AlbumId   Int?
 }
 
 model Album {
