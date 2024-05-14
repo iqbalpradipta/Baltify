@@ -7,9 +7,10 @@ function CardUsers() {
     <>
       <Box
         sx={{
-          border: "1px solid #6a91a6",
+          border: "1px solid #402B3A",
           borderRadius: 3,
-          backgroundColor: "#BDCDD6",
+          backgroundColor: "#F8F4EC",
+          boxShadow: '100px'
         }}
       >
         <Stack direction="row">

@@ -17,7 +17,8 @@ CREATE TABLE "Song" (
     "tittle" TEXT NOT NULL,
     "Artist" TEXT NOT NULL,
     "Song" TEXT NOT NULL,
-    "AlbumId" INTEGER NOT NULL,
+    "Image" TEXT NOT NULL,
+    "AlbumId" INTEGER,
 
     CONSTRAINT "Song_pkey" PRIMARY KEY ("id")
 );
@@ -26,6 +27,7 @@ CREATE TABLE "Song" (
 CREATE TABLE "Album" (
     "id" SERIAL NOT NULL,
     "tittleAlbum" TEXT NOT NULL,
+    "image" TEXT NOT NULL,
 
     CONSTRAINT "Album_pkey" PRIMARY KEY ("id")
 );
@@ -37,4 +39,4 @@ CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
 -- AddForeignKey
-ALTER TABLE "Song" ADD CONSTRAINT "Song_AlbumId_fkey" FOREIGN KEY ("AlbumId") REFERENCES "Album"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Song" ADD CONSTRAINT "Song_AlbumId_fkey" FOREIGN KEY ("AlbumId") REFERENCES "Album"("id") ON DELETE SET NULL ON UPDATE CASCADE;

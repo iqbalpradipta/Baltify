@@ -6,6 +6,7 @@ export default new (class AlbumController {
   InsertAlbum = async (req: Request, res: Response) => {
     try {
       const data = req.body;
+      data.image = req.file?.filename
 
       const response = await AlbumService.InsertAlbum(data);
 

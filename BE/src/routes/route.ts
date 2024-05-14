@@ -15,16 +15,16 @@ router.put('/users/:username', UserController.updateUsers)
 router.delete('/users/:username', UserController.deleteUsers)
 
 //Album
-router.get('/album', AlbumController.GetAlbum)
-router.post('/album', AlbumController.InsertAlbum)
+router.get('/album',  uploadFiles.UploadSingle('image') ,AlbumController.GetAlbum)
+router.post('/album', uploadFiles.UploadSingle('image') ,AlbumController.InsertAlbum)
 // router.get('/users/:username', UserController.getUsersById)
 // router.put('/users/:username', UserController.updateUsers)
 // router.delete('/users/:username', UserController.deleteUsers)
 
 // Song
 router.get('/song', SongController.GetSong)
-router.post('/song', uploadFiles.Upload('Song'), SongController.InsertSong)
-router.patch('/song/:id', uploadFiles.Upload('Song'), SongController.UpdateSong)
+router.post('/song', uploadFiles.Upload('Song', 'Image'), SongController.InsertSong)
+router.patch('/song/:id', SongController.UpdateSong)
 
 // Auth
 router.post('/register', AuthController.RegisterUsers)

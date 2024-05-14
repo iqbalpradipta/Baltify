@@ -29,6 +29,7 @@ model Song {
   tittle    String
   Artist    String
   Song      String
+  Image     String
   Album     Album?   @relation(fields: [AlbumId], references: [id])
   AlbumId   Int?
 }
@@ -36,5 +37,6 @@ model Song {
 model Album {
   id          Int     @id @default(autoincrement())
   tittleAlbum String
+  image       String
   Song        Song[]
 }
