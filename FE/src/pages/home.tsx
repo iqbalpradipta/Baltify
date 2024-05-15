@@ -8,25 +8,25 @@ function Home() {
     <>
       <Box
         sx={{
-          backgroundColor: "#F8F4EC",
+          backgroundColor: "#FCFFE0",
           minHeight: "100vh",
           maxHeight: "100%",
         }}
       >
-        <Box sx={{ mx: "390px", p: "30px", fontWeight: "Bold" }}>
+        <Box sx={{ mx: "390px", p: "30px", fontWeight: "Bold", color: "#75A47F" }}>
           Good Morning, Iqbal Pradipta
         </Box>
-        <Box sx={{ mx: "367px", mt: "-40px", p: "30px", fontWeight: "Bold" }}>
+        <Box sx={{ mx: "367px", mt: "-40px", p: "30px", fontWeight: "Bold", color: "#75A47F" }}>
           <Search />
         </Box>
-        <Box sx={{ mx: "390px", mt: "-30px", p: "30px", fontWeight: "Bold" }}>
+        <Box sx={{ mx: "390px", mt: "-30px", p: "30px", fontWeight: "Bold", color: "#75A47F" }}>
           For You
         </Box>
         <Box sx={{ mx: "380px", mt: "-60px", width: "900px" }}>
           <ListAlbum />
         </Box>
 
-        <Box sx={{ mx: "390px", mt: "-70px", p: "30px", fontWeight: "Bold" }}>
+        <Box sx={{ mx: "390px", mt: "-70px", p: "30px", fontWeight: "Bold", color: "#75A47F" }}>
           Your Music
         </Box>
 

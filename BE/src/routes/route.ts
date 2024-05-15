@@ -15,7 +15,7 @@ router.put('/users/:username', UserController.updateUsers)
 router.delete('/users/:username', UserController.deleteUsers)
 
 //Album
-router.get('/album',  uploadFiles.UploadSingle('image') ,AlbumController.GetAlbum)
+router.get('/album' ,AlbumController.GetAlbum)
 router.post('/album', uploadFiles.UploadSingle('image') ,AlbumController.InsertAlbum)
 // router.get('/users/:username', UserController.getUsersById)
 // router.put('/users/:username', UserController.updateUsers)

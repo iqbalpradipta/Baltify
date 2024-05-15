@@ -43,8 +43,8 @@ function ListAlbum() {
                   alt={data.alt}
                   src={data.src}
                 />
-                <Box sx={{ color: 'black', fontWeight: 'bold' ,display: 'flex', mt: '10px'}}>{data.alt}</Box>
-                <Box sx={{ color: 'gray', display: 'flex', mb: 4 }}>{data.tittle}</Box>
+                <Box sx={{  fontWeight: 'bold' ,display: 'flex', mt: '10px', color: "#75A47F"}}>{data.alt}</Box>
+                <Box sx={{ display: 'flex', mb: 4, color: "#75A47F" }}>{data.tittle}</Box>
               </Box>
             </SwiperSlide>
           ))}

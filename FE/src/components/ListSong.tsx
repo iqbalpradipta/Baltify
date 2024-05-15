@@ -10,7 +10,7 @@ function ListSong() {
         <Box
           key={index}
           sx={{
-            backgroundColor: "#402B3A",
+            backgroundColor: "#75A47F",
             width: "100%",
             height: "100%",
             borderRadius: "13px",
@@ -30,8 +30,8 @@ function ListSong() {
                 style={{ width: "120px", borderRadius: "13px", padding: "4px" }}
               />
               <Stack direction="column">
-                <Box sx={{ marginTop: 5, fontWeight: "bold" }}>{data.alt}</Box>
-                <Box sx={{ marginTop: 1 }}>{data.tittle}</Box>
+                <Box sx={{ marginTop: 5, fontWeight: "bold", color: "#FCFFE0" }}>{data.alt}</Box>
+                <Box sx={{ marginTop: 1, color: "#FCFFE0" }}>{data.tittle}</Box>
               </Stack>
             </Stack>
             <ButtonPlay />

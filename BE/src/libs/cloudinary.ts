@@ -11,8 +11,6 @@ export default new (class Cloudinary {
   async destination(song: string) {
     try {
       const cloudResponse = await cloudinary.uploader.upload(`../BE/src/upload/${song}`, { folder: 'Songs', resource_type: "video" });
-      console.log(cloudResponse)
-    //   console.log(song)
       return cloudResponse.secure_url
     } catch (error) {
       throw error;
@@ -22,8 +20,6 @@ export default new (class Cloudinary {
   async destinationImage(images: string) {
     try {
       const cloudResponse = await cloudinary.uploader.upload(`../BE/src/upload/${images}`, { folder: 'Images' });
-      console.log(cloudResponse)
-      console.log(images)
       return cloudResponse.secure_url
     } catch (error) {
       throw error;
