@@ -3,6 +3,7 @@ import CardUsers from "./CardUsers";
 import Menu from "./Menu";
 import Playlist from "./Playlist";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Sidebar() {
   const [isLogin, setIsLogin] = useState(false)
@@ -14,8 +15,8 @@ function Sidebar() {
           {isLogin ? <CardUsers />: 
           <>
             <Box gap={2}>
-              <Button variant="contained" color="success" sx={{width: '300px', borderRadius: '10px'}}>Login</Button>
-              <Button variant="outline" sx={{width: '300px', borderRadius: '10px', mt: '10px', backgroundColor: '#FCFFE0' ,'&:hover': {background: "#BACD92",}}}>Register</Button>
+              <Button component={Link} to="/login" variant="contained" color="success" sx={{width: '300px', borderRadius: '10px'}}>Login</Button>
+              <Button component={Link} to="/register" variant="outline" sx={{width: '300px', borderRadius: '10px', mt: '10px', backgroundColor: '#FCFFE0' ,'&:hover': {background: "#BACD92",}}}>Register</Button>
             </Box>
           </>}
         </Box>
