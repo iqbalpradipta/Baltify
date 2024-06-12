@@ -1,8 +1,21 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Stack, Button } from "@mui/material";
+import { useEffect, useState } from "react";
 import { RiRadioButtonLine } from "react-icons/ri";
+import { JWTDecode } from "../hooks/jwtDecode";
+import { Logout } from "../hooks/logout";
 
 
 function CardUsers() {
+  const [userData, setUserData] = useState<JwtPayload | null>(null)
+  const {handleLogout} = Logout()
+  useEffect(() => {
+      const data = JWTDecode();
+      if(data) {
+        setUserData(data)
+      }
+  }, [])
+
+
   return (
     <>
       <Box
@@ -22,8 +35,9 @@ function CardUsers() {
             />
           </Box>
           <Box sx={{ p: 2, mx: "-10px", my: "10px" }}>
-            <Box>Iqbal Pradipta</Box>
+            <Box>{userData?.payload?.name}</Box>
             <Box sx={{ color: "gray", fontSize: '15px', my: '5px' }}> <RiRadioButtonLine style={{color: 'green', marginBottom: '-2px'}} /> Online</Box>
+            <Button onClick={handleLogout} sx={{width: '100px', color: 'white', borderRadius: '10px', mt: '10px', backgroundColor: 'red' ,'&:hover': {background: `#c41c1c`,}}}>Logout</Button>
           </Box>
         </Stack>
       </Box>
